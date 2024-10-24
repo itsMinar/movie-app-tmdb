@@ -26,10 +26,10 @@ const Navbar = () => {
         {/* Wishlist Link */}
         <div className="pr-4">
           <Link
-            href="/wishlist"
+            href="/watchlist"
             className="font-medium text-gray-800 transition duration-300 ease-in-out hover:text-blue-500"
           >
-            Wishlist
+            Watchlist
           </Link>
         </div>
 

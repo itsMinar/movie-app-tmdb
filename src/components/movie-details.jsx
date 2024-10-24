@@ -4,7 +4,7 @@ import { formatDate } from '@/lib/utils';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import { allCast } from '../../emni';
-import { Button } from './ui/button';
+import WatchListToggle from './watchlist-toggle';
 
 export default function MovieDetails({ movie }) {
   return (
@@ -39,7 +39,7 @@ export default function MovieDetails({ movie }) {
             </div>
 
             <h2 className="mb-2 text-xl font-semibold">Description</h2>
-            <p className="text-muted-foreground mb-4">{movie.overview}</p>
+            <p className="mb-4 text-muted-foreground">{movie.overview}</p>
             <div className="mb-4 flex items-center">
               <Calendar className="mr-2 h-4 w-4" />
               <span>Release Date: {formatDate(movie.release_date)}</span>
@@ -54,9 +54,7 @@ export default function MovieDetails({ movie }) {
               ))}
             </div>
 
-            <div>
-              <Button>Add to Watchlist</Button>
-            </div>
+            <WatchListToggle movie={movie} />
           </CardContent>
         </Card>
       </div>
