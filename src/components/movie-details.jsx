@@ -1,8 +1,9 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatDate } from '@/lib/utils';
-import { Calendar, Clock, DollarSign, Star } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import Image from 'next/image';
+import { allCast } from '../../emni';
 import { Button } from './ui/button';
 
 export default function MovieDetails({ movie }) {
@@ -36,28 +37,21 @@ export default function MovieDetails({ movie }) {
                 </Badge>
               ))}
             </div>
-            <h2 className="mb-2 text-xl font-semibold">Description</h2>
-            <p className="text-muted-foreground mb-6">{movie.overview}</p>
 
-            <div className="mb-6 grid grid-cols-2 gap-4">
-              <div className="flex items-center">
-                <Calendar className="mr-2 h-4 w-4" />
-                <span>Release Date: {formatDate(movie.release_date)}</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="mr-2 h-4 w-4" />
-                <span>Runtime: {movie.runtime} minutes</span>
-              </div>
-              <div className="flex items-center">
-                <Star className="mr-2 h-4 w-4" />
-                <span>
-                  Rating: {movie.vote_average}/10 ({movie.vote_count} votes)
-                </span>
-              </div>
-              <div className="flex items-center">
-                <DollarSign className="mr-2 h-4 w-4" />
-                <span>Budget: ${movie.budget}</span>
-              </div>
+            <h2 className="mb-2 text-xl font-semibold">Description</h2>
+            <p className="text-muted-foreground mb-4">{movie.overview}</p>
+            <div className="mb-4 flex items-center">
+              <Calendar className="mr-2 h-4 w-4" />
+              <span>Release Date: {formatDate(movie.release_date)}</span>
+            </div>
+
+            <h2 className="mb-2 text-xl font-semibold">Cast</h2>
+            <div className="mb-4 flex flex-wrap gap-2">
+              {allCast.map((cast) => (
+                <Badge className="text-sm" key={cast.id} variant="secondary">
+                  {cast.name}
+                </Badge>
+              ))}
             </div>
 
             <div>

@@ -30,7 +30,9 @@ export default function MovieCard({ movie }) {
           )}
         </div>
         <div className="p-4">
-          <h2 className="mb-2 truncate text-lg font-semibold">{movie.title}</h2>
+          <h2 className="mb-2 truncate text-lg font-semibold dark:text-gray-900">
+            {movie.title}
+          </h2>
           <p className="mb-2 text-sm text-gray-600">
             Release: {formatDate(movie.release_date)}
           </p>

@@ -1,3 +1,5 @@
+import Navbar from '@/components/nav-bar';
+import ProviderWrapper from '@/providers/provider-wrapper';
 import './globals.css';
 
 export const metadata = {
@@ -9,7 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ProviderWrapper>
+          <Navbar />
+          <main className="container mx-auto px-4 py-8">{children}</main>
+        </ProviderWrapper>
+      </body>
     </html>
   );
 }
