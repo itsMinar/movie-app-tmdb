@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body>
         <ProviderWrapper>
           <Navbar />
-          <main className="container mx-auto px-4 py-8">{children}</main>
+          <main className="container mx-auto px-4 py-6">{children}</main>
         </ProviderWrapper>
       </body>
     </html>

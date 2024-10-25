@@ -35,7 +35,7 @@ export default function MovieList() {
         {isFetchingNextPage ? (
           <div>Loading more...</div>
         ) : hasNextPage ? (
-          <div>Load more</div>
+          <div hidden>Load more</div>
         ) : showNoMoreMovies ? (
           <div>No more movies</div>
         ) : null}

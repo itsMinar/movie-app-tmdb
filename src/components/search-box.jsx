@@ -2,6 +2,7 @@
 
 import { env } from '@/env';
 import { useInfiniteMovies } from '@/hooks/useInfiniteMovies';
+import { formatDate } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -101,39 +102,49 @@ export default function SearchBox() {
             <div className="p-4 text-center text-muted-foreground">
               Loading...
             </div>
-          ) : searchResults && searchResults.pages.length > 0 ? (
-            <ul className="max-h-96 overflow-y-auto py-2">
-              {searchResults.pages.map((page) =>
-                page.results.map((movie) => (
-                  <li
-                    onClick={() => setShowModal(false)}
-                    key={movie.id}
-                    className="px-4 py-2 hover:bg-accent"
-                  >
-                    <Link
-                      href={`/movies/${movie.id}`}
-                      className="flex items-center space-x-4"
-                    >
-                      <Image
-                        src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w92${movie.poster_path}`}
-                        alt={movie.title}
-                        width={46}
-                        height={69}
-                        className="rounded"
-                      />
-                      <span className="text-sm text-foreground">
-                        {movie.title}
-                      </span>
-                    </Link>
-                  </li>
-                ))
-              )}
-              <li ref={inViewRef} className="h-1" />
-            </ul>
           ) : (
-            <div className="p-4 text-center text-muted-foreground">
-              No results found
-            </div>
+            searchResults &&
+            searchResults.pages.length > 0 && (
+              <ul className="max-h-96 overflow-y-auto py-2">
+                {searchResults.pages.map((page) => {
+                  return page.results.length > 0 ? (
+                    page.results.map((movie) => (
+                      <li
+                        onClick={() => setShowModal(false)}
+                        key={movie.id}
+                        className="px-4 py-2 hover:bg-accent"
+                      >
+                        <Link
+                          href={`/movies/${movie.id}`}
+                          className="flex items-center space-x-4"
+                        >
+                          <Image
+                            src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w92${movie.poster_path}`}
+                            alt={movie.title}
+                            width={46}
+                            height={69}
+                            className="rounded"
+                          />
+                          <div className="flex flex-col gap-1">
+                            <p className="text-md font-semibold text-foreground">
+                              {movie.title}
+                            </p>
+                            <p className="text-sm text-foreground">
+                              {formatDate(movie.release_date)}
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    ))
+                  ) : (
+                    <div className="p-4 text-center text-muted-foreground">
+                      No results found
+                    </div>
+                  );
+                })}
+                <li ref={inViewRef} className="h-1" />
+              </ul>
+            )
           )}
         </div>
       )}

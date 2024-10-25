@@ -10,11 +10,13 @@ export default async function WatchListPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold">WatchList:</h2>
+      <h1 className="mb-8 text-center text-2xl font-bold">WatchList</h1>
       {watchList.length > 0 ? (
         <MovieList movies={watchList} hasRemoveBtn={true} />
       ) : (
-        <p>No Movies in WatchList!</p>
+        <h1 className="text-center text-xl dark:text-gray-300">
+          No Movies in Your Watchlist Yet!
+        </h1>
       )}
     </div>
   );
