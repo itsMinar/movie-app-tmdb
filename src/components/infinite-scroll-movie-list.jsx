@@ -4,6 +4,7 @@ import { useInfiniteMovies } from '@/hooks/useInfiniteMovies';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import MovieCard from './movie-card';
+import MovieListSkeleton from './movie-list-skeleton';
 
 export default function MovieList() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
@@ -21,7 +22,7 @@ export default function MovieList() {
     }
   }, [inView, fetchNextPage, hasNextPage, showNoMoreMovies]);
 
-  if (status === 'pending') return <div>Loading...</div>;
+  if (status === 'pending') return <MovieListSkeleton />;
   if (status === 'error') return <div>Error fetching movies</div>;
 
   return (
