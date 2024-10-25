@@ -1,23 +1,26 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { env } from '@/env';
 import { formatDate } from '@/lib/utils';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
-import { allCast } from '../../emni';
 import WatchListToggle from './watchlist-toggle';
 
-export default function MovieDetails({ movie }) {
+export default function MovieDetails({ movie, allCast = [] }) {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
       <div className="md:col-span-1">
         <Card>
           <CardContent className="p-0">
             <Image
-              src="https://image.tmdb.org/t/p/w500/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg"
-              alt="The Wild Robot movie poster"
+              src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/${movie.poster_path}`}
+              alt={movie.title}
               width={500}
               height={750}
               className="h-auto w-full rounded-t-lg"
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
             />
           </CardContent>
         </Card>
@@ -25,9 +28,7 @@ export default function MovieDetails({ movie }) {
       <div className="md:col-span-2">
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl font-bold">
-              {movie.original_title}
-            </CardTitle>
+            <CardTitle className="text-3xl font-bold">{movie.title}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mb-4 flex flex-wrap gap-2">

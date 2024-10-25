@@ -1,5 +1,6 @@
 'use client';
 
+import { env } from '@/env';
 import { formatDate } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,10 +18,13 @@ export default function MovieCard({ movie }) {
       >
         <div className="relative aspect-[2/3]">
           <Image
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}${movie.poster_path}`}
             alt={movie.title}
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
           />
           {hoveredMovie === movie.id && (
             <div className="absolute inset-0 overflow-y-auto bg-black bg-opacity-75 p-4 text-white">
