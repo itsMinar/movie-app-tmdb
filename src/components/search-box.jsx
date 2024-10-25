@@ -30,7 +30,7 @@ export default function SearchBox() {
   });
 
   const searchQuery = watch('searchQuery');
-  const [debouncedSearchQuery] = useDebounce(searchQuery, 300);
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
 
   const {
     data: searchResults,
@@ -45,7 +45,7 @@ export default function SearchBox() {
   });
 
   useEffect(() => {
-    if (isValid && debouncedSearchQuery) {
+    if (isValid && debouncedSearchQuery && debouncedSearchQuery.length >= 2) {
       refetch();
       setShowModal(true);
     } else {
@@ -73,12 +73,19 @@ export default function SearchBox() {
     }
   }, [inView, fetchNextPage, hasNextPage]);
 
+  const handleFocus = () => {
+    if (isValid && searchQuery && searchQuery.length >= 2) {
+      setShowModal(true);
+    }
+  };
+
   return (
     <div className="relative mx-6 max-w-xl flex-1" ref={searchRef}>
       <input
         type="search"
         placeholder="Search Movies..."
         {...register('searchQuery')}
+        onFocus={handleFocus}
         className="w-full rounded-full bg-gray-100 px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-200 dark:focus:ring-blue-400"
       />
 
