@@ -23,3 +23,7 @@ export async function fetchMovieCredits(id) {
 export async function fetchMovieRecommendations(id) {
   return fetchFromAPI(`/movie/${id}/recommendations`);
 }
+
+export async function fetchPopularMovies() {
+  return fetchFromAPI(`/movie/popular`);
+}

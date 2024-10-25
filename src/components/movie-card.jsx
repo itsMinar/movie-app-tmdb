@@ -27,7 +27,7 @@ export default function MovieCard({ movie, hasRemoveBtn }) {
               src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w500${movie.poster_path}`}
               alt={movie.title}
               fill
-              sizes="75"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
               loading="lazy"
               placeholder="blur"

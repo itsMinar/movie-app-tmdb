@@ -1,12 +1,20 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { env } from '@/env';
+import { fetchMovieCredits, fetchMovieDetails } from '@/lib/api';
 import { formatDate } from '@/lib/utils';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import WatchListToggle from './watchlist-toggle';
 
-export default function MovieDetails({ movie, allCast = [] }) {
+export default async function MovieDetails({ movieId }) {
+  const [movie, credits] = await Promise.all([
+    fetchMovieDetails(movieId),
+    fetchMovieCredits(movieId),
+  ]);
+
+  const allCast = credits.cast || [];
+
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
       <div className="md:col-span-1">
