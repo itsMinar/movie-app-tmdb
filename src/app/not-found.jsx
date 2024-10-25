@@ -1,6 +1,10 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Page Not Found',
+};
+
 export default function RootNotFoundPage() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 p-4 text-gray-100">
@@ -36,13 +40,10 @@ export default function RootNotFoundPage() {
           <circle cx="140" cy="80" r="10" fill="currentColor" />
         </svg>
       </div>
-      <p className="mb-8 max-w-[500px] px-4 text-center text-lg text-indigo-200">
-        We&apos;re sorry, but it seems you&apos;ve wandered into uncharted
-        territory. Let&apos;s get you back on track!
-      </p>
+
       <Button
         asChild
-        className="bg-indigo-500 text-white transition-colors duration-200 hover:bg-indigo-600"
+        className="mt-4 bg-indigo-500 text-white transition-colors duration-200 hover:bg-indigo-600"
       >
         <Link href="/">Return to Home</Link>
       </Button>

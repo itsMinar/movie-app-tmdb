@@ -1,6 +1,10 @@
 import { getWatchList } from '@/actions';
 import MovieList from '@/components/movie-list';
 
+export const metadata = {
+  title: 'Watch List - Movie App',
+};
+
 export default async function WatchListPage() {
   const watchList = await getWatchList();
 

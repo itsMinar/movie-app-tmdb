@@ -22,6 +22,14 @@ export const revalidate = 60;
 //   }));
 // }
 
+export async function generateMetadata({ params: { id } }) {
+  const movieDetails = await fetchMovieDetails(id);
+
+  return {
+    title: movieDetails.title,
+  };
+}
+
 export default async function MovieDetailsPage({ params: { id } }) {
   const [movieDetails, credits, recommendations] = await Promise.all([
     fetchMovieDetails(id),
