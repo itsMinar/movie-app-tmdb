@@ -8,7 +8,7 @@ import MovieListSkeleton from './movie-list-skeleton';
 
 export default function MovieList() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
-    useInfiniteMovies();
+    useInfiniteMovies({});
 
   const { ref, inView } = useInView();
 
