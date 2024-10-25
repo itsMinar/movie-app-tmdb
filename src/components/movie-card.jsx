@@ -24,7 +24,7 @@ export default function MovieCard({ movie, hasRemoveBtn }) {
         >
           <div className="relative aspect-[2/3]">
             <Image
-              src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}${movie.poster_path}`}
+              src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w500${movie.poster_path}`}
               alt={movie.title}
               fill
               className="object-cover"

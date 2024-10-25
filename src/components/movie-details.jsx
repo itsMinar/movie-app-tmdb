@@ -13,7 +13,7 @@ export default function MovieDetails({ movie, allCast = [] }) {
         <Card>
           <CardContent className="p-0">
             <Image
-              src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/${movie.poster_path}`}
+              src={`${env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w500/${movie.poster_path}`}
               alt={movie.title}
               width={500}
               height={750}
