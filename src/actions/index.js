@@ -1,6 +1,8 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 let watchList = [];
 
@@ -21,4 +23,15 @@ export async function getWatchList() {
 
 export async function isAddedToWatchList(movieId) {
   return watchList.some((item) => item.id === movieId);
+}
+
+// mock login and logout action
+export async function login() {
+  cookies().set('auth', 'success');
+  redirect('/watchlist');
+}
+
+export async function logout() {
+  cookies().delete('auth');
+  redirect('/');
 }

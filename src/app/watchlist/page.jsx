@@ -1,5 +1,6 @@
-import { getWatchList } from '@/actions';
+import { getWatchList, logout } from '@/actions';
 import MovieList from '@/components/movie-list';
+import { Button } from '@/components/ui/button';
 
 export const metadata = {
   title: 'Watch List - Movie App',
@@ -10,7 +11,15 @@ export default async function WatchListPage() {
 
   return (
     <div>
-      <h1 className="mb-8 text-center text-2xl font-bold">WatchList</h1>
+      <div className="flex justify-center gap-10">
+        <h1 className="mb-8 text-center text-2xl font-bold">WatchList</h1>
+        <form action={logout}>
+          <Button type="submit" variant="destructive">
+            Logout
+          </Button>
+        </form>
+      </div>
+
       {watchList.length > 0 ? (
         <MovieList movies={watchList} hasRemoveBtn={true} />
       ) : (
