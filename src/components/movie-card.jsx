@@ -31,7 +31,7 @@ export default function MovieCard({ movie, hasRemoveBtn }) {
               className="object-cover"
               loading="lazy"
               placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUc0irBwACbQE9M3KR+QAAAABJRU5ErkJggg=="
             />
             {hoveredMovie === movie.id && (
               <div className="absolute inset-0 overflow-y-auto bg-black bg-opacity-75 p-4 text-white">

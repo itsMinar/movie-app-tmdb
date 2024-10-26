@@ -28,7 +28,7 @@ export default async function MovieDetails({ movieId }) {
               className="h-auto w-full rounded-t-lg"
               loading="lazy"
               placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPvd7POQAAAABJRU5ErkJggg=="
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUc0irBwACbQE9M3KR+QAAAABJRU5ErkJggg=="
             />
           </CardContent>
         </Card>
