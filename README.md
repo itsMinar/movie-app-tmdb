@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movie App 🎬
 
-## Getting Started
+A dynamic and user-friendly movie app built with Next.js, featuring popular
+movies, a search functionality with debouncing, and an infinite scrolling
+experience. Users can view detailed information for each movie, add movies to
+their watchlist with optimistic UI updates, and see personalized
+recommendations. The watchlist is protected by authentication, ensuring a
+personalized experience for each user.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Home Page**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  - Displays popular movies with infinite scrolling.
+  - Includes a search bar with debouncing and infinite scrolling results for
+    easy exploration.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Movie Details Page**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  - Shows detailed information about each movie.
+  - Allows users to add movies to their watchlist with an optimistic UI update.
+  - Recommends related movies based on the selected movie.
 
-## Learn More
+- **Watchlist Page**
 
-To learn more about Next.js, take a look at the following resources:
+  - Protected by Next.js middleware: redirects to the login page if the user is
+    not authenticated.
+  - Allows users to manage their watchlist, including the option to remove
+    movies.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Further Work
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The following features are planned for future development:
 
-## Deploy on Vercel
+- **Genre-Based Movie List**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - Add a dynamic route to browse movies by genre (e.g., /genre/[genreId]).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Movies by Cast**
+
+  - Add a dynamic route to list movies acted by a specific actor/actress (e.g.,
+    /cast/[castId]).
+
+- **Filtering Options on Home Page**
+
+  - Integrate advanced filtering options on the home page to refine movie
+    results by genre, rating, and release year.
+
+## Run Locally
+
+1. Clone this repository -
+   ```sh
+   https://github.com/itsMinar/movie-app-tmdb
+   ```
+2. Go to the Directory -
+
+   ```sh
+   cd movie-app-tmdb
+   ```
+
+3. Install dependencies -
+   ```sh
+   npm install
+   ```
+4. create **.env** file and copy environment variables from **.env.example** to
+   **.env**
+   - Open **.env** and replace placeholders with your own **API Keys or
+     values**.
+5. Run the project:
+   ```bash
+   npm run dev
+   ```
