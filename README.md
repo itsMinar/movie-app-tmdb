@@ -50,7 +50,7 @@ The following features are planned for future development:
 
 1. Clone this repository -
    ```sh
-   https://github.com/itsMinar/movie-app-tmdb
+   git clone https://github.com/itsMinar/movie-app-tmdb
    ```
 2. Go to the Directory -
 
