@@ -28,12 +28,10 @@ export async function isAddedToWatchList(movieId) {
 // mock login and logout action
 export async function login() {
   cookies().set('auth', 'success');
-  revalidatePath('/watchlist');
   redirect('/watchlist');
 }
 
 export async function logout() {
   cookies().delete('auth');
-  revalidatePath('/watchlist');
   redirect('/');
 }
